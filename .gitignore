@@ -1,0 +1,17 @@
+# Arquivo gerado — regenere com: python gerar-preview.py
+infine-preview.html
+
+# Imagens duplicadas na raiz (originais em assets/images/)
+fundo cartao.png
+Logo Infíne PNG.png
+
+# Fontes duplicadas na raiz (originais em assets/fonts/)
+playfair-display/
+
+# Configurações locais do Claude Code
+.claude/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
