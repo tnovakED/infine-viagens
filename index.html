@@ -44,19 +44,24 @@
       <img src="assets/images/fundo-cartao.png" alt="" aria-hidden="true" class="hero__texture" />
     </div>
     <div class="hero__content container">
-      <p class="hero__eyebrow">Viagens com propósito</p>
-      <h1 class="hero__title">
-        Você vai partir<br />
-        <em>como é.</em><br />
-        Vai voltar<br />
-        <em>mais inteira.</em>
-      </h1>
-      <p class="hero__sub">
-        Jornadas com curadoria exclusiva para mulheres que escolhem sentir o mundo — não apenas visitá-lo.
-      </p>
-      <div class="hero__actions">
-        <a href="#jornadas" class="btn btn--primary">Conheça as Jornadas</a>
-        <a href="#proposito" class="btn btn--ghost">Nossa Essência</a>
+      <div class="hero__text">
+        <p class="hero__eyebrow">Viagens com propósito</p>
+        <h1 class="hero__title">
+          Você vai partir<br />
+          <em>como é.</em><br />
+          Vai voltar<br />
+          <em>mais inteira.</em>
+        </h1>
+        <p class="hero__sub">
+          Jornadas com curadoria exclusiva para mulheres que escolhem sentir o mundo — não apenas visitá-lo.
+        </p>
+        <div class="hero__actions">
+          <a href="#jornadas" class="btn btn--primary">Conheça as Jornadas</a>
+          <a href="#proposito" class="btn btn--ghost">Nossa Essência</a>
+        </div>
+      </div>
+      <div class="hero__logo-aside" aria-hidden="true">
+        <img src="assets/images/logo-branca.png" alt="" />
       </div>
     </div>
     <div class="hero__scroll" aria-hidden="true">
@@ -240,7 +245,7 @@
         <p class="section-sub">Escolha o que você precisa. A Leila monta o caminho.</p>
       </div>
 
-      <!-- Card destaque: Roteiro Personalizado -->
+      <!-- Card destaque: Roteiro Personalizado + todos os serviços -->
       <div class="servicos__destaque fade-in" id="servicoDestaque">
         <div class="servicos__destaque-icon" aria-hidden="true">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -256,21 +261,23 @@
           <button class="btn btn--outline servicos__destaque-btn" data-servico="Roteiro Personalizado para o Meu Grupo">
             Selecionar este serviço
           </button>
-        </div>
-      </div>
 
-      <!-- Grid de chips -->
-      <div class="servicos__grid fade-in" id="servicosGrid">
-        <button class="servico-chip" data-servico="Pacotes">Pacotes</button>
-        <button class="servico-chip" data-servico="Curadoria">Curadoria</button>
-        <button class="servico-chip" data-servico="Roteiros">Roteiros</button>
-        <button class="servico-chip" data-servico="Locação Veicular">Locação Veicular</button>
-        <button class="servico-chip" data-servico="Seguro Viagem">Seguro Viagem</button>
-        <button class="servico-chip" data-servico="Chip Internacional">Chip Internacional</button>
-        <button class="servico-chip" data-servico="Cotação de Aéreo">Cotação de Aéreo</button>
-        <button class="servico-chip" data-servico="Hospedagem">Hospedagem</button>
-        <button class="servico-chip" data-servico="Ingressos">Ingressos</button>
-        <button class="servico-chip" data-servico="Passeios">Passeios</button>
+          <p class="servicos__outros-label">Escolha outros serviços abaixo</p>
+
+          <!-- Grid de chips dentro do card -->
+          <div class="servicos__grid" id="servicosGrid">
+            <button class="servico-chip" data-servico="Pacotes">Pacotes</button>
+            <button class="servico-chip" data-servico="Curadoria">Curadoria</button>
+            <button class="servico-chip" data-servico="Roteiros">Roteiros</button>
+            <button class="servico-chip" data-servico="Locação Veicular">Locação Veicular</button>
+            <button class="servico-chip" data-servico="Seguro Viagem">Seguro Viagem</button>
+            <button class="servico-chip" data-servico="Chip Internacional">Chip Internacional</button>
+            <button class="servico-chip" data-servico="Cotação de Aéreo">Cotação de Aéreo</button>
+            <button class="servico-chip" data-servico="Hospedagem">Hospedagem</button>
+            <button class="servico-chip" data-servico="Ingressos">Ingressos</button>
+            <button class="servico-chip" data-servico="Passeios">Passeios</button>
+          </div>
+        </div>
       </div>
 
       <!-- Aviso de seleção alterada -->
