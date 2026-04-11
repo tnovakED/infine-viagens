@@ -264,6 +264,8 @@ p + p { margin-top: 1rem; }
   padding: .625rem 1.5rem;
   border-color: var(--terracota);
   color: var(--terracota);
+  white-space: nowrap;
+  text-align: center;
 }
 .nav__cta:hover {
   background: var(--terracota);
