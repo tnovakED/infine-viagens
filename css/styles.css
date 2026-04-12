@@ -611,7 +611,7 @@ p + p { margin-top: 1rem; }
 }
 
 .jornada-card__body {
-  padding: 2.25rem 3.25rem 2rem;
+  padding: 2.5rem;
 }
 .jornada-card__body h3 {
   color: var(--text-dark);
