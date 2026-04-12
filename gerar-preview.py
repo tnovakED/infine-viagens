@@ -52,9 +52,13 @@ for name, rel_path in fonts.items():
         print(f"  OK fonte: {name}")
 
 # -- 3. Imagens: embutir UMA VEZ como variaveis JS ------------------
-logo_uri        = b64(os.path.join(ROOT, "assets", "images", "logo.png"))
-logo_branca_uri = b64(os.path.join(ROOT, "assets", "images", "logo-branca.png"))
-fundo_uri       = b64(os.path.join(ROOT, "assets", "images", "fundo-cartao.png"))
+logo_uri            = b64(os.path.join(ROOT, "assets", "images", "logo.png"))
+logo_branca_uri     = b64(os.path.join(ROOT, "assets", "images", "logo-branca.png"))
+logo_toda_branca_uri = b64(os.path.join(ROOT, "assets", "images", "logo-toda-branca.png"))
+fundo_uri           = b64(os.path.join(ROOT, "assets", "images", "fundo-cartao.png"))
+brazil_uri          = b64(os.path.join(ROOT, "assets", "images", "brazil.png"))
+balloon_uri         = b64(os.path.join(ROOT, "assets", "images", "hot-air-balloon.png"))
+sun_uri             = b64(os.path.join(ROOT, "assets", "images", "sun.png"))
 
 # Substitui apenas a PRIMEIRA ocorrencia de cada imagem no HTML
 # As demais sao substituidas pelo mesmo data URI via JS abaixo
@@ -66,6 +70,22 @@ if logo_uri:
 if logo_branca_uri:
     html = html.replace('src="assets/images/logo-branca.png"', f'src="{logo_branca_uri}"')
     print("  OK logo branca embutida")
+
+if logo_toda_branca_uri:
+    html = html.replace('src="assets/images/logo-toda-branca.png"', f'src="{logo_toda_branca_uri}"')
+    print("  OK logo toda branca embutida")
+
+if brazil_uri:
+    html = html.replace('src="assets/images/brazil.png"', f'src="{brazil_uri}"')
+    print("  OK icone brasil embutido")
+
+if balloon_uri:
+    html = html.replace('src="assets/images/hot-air-balloon.png"', f'src="{balloon_uri}"')
+    print("  OK icone balao embutido")
+
+if sun_uri:
+    html = html.replace('src="assets/images/sun.png"', f'src="{sun_uri}"')
+    print("  OK icone sol embutido")
 
 if fundo_uri:
     # Substitui todas as ocorrencias de uma vez (a imagem e a mesma, so embutida uma vez no arquivo pois o HTML ja referencia o mesmo src)

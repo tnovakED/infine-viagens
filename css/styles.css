@@ -231,13 +231,18 @@ p + p { margin-top: 1rem; }
 .nav__logo img {
   height: 52px;
   width: auto;
-  filter: none;
-  transition: filter var(--transition), height var(--transition);
+  transition: height var(--transition), opacity var(--transition);
 }
-.nav.scrolled .nav__logo img {
-  height: 40px;
-  filter: none;
-}
+
+/* Topo: branca visível, escura oculta */
+.nav__logo--branca { display: block; }
+.nav__logo--escura { display: none; }
+
+/* Scrolled: escura visível, branca oculta */
+.nav.scrolled .nav__logo--branca { display: none; }
+.nav.scrolled .nav__logo--escura { display: block; }
+
+.nav.scrolled .nav__logo img { height: 40px; }
 
 .nav__links {
   display: flex;
@@ -262,12 +267,23 @@ p + p { margin-top: 1rem; }
 .nav__cta {
   font-size: .8rem;
   padding: .625rem 1.5rem;
-  border-color: var(--terracota);
-  color: var(--terracota);
+  border-color: var(--white);
+  color: var(--white);
   white-space: nowrap;
   text-align: center;
 }
 .nav__cta:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--terracota);
+}
+
+/* Scrolled: volta para terracota */
+.nav.scrolled .nav__cta {
+  border-color: var(--terracota);
+  color: var(--terracota);
+}
+.nav.scrolled .nav__cta:hover {
   background: var(--terracota);
   border-color: var(--terracota);
   color: var(--white);
@@ -584,6 +600,13 @@ p + p { margin-top: 1rem; }
   width: 80px;
   height: 80px;
   color: var(--terracota);
+}
+
+/* Imagens PNG: colorir para terracota (#C4826D) */
+.jornada-icon--img {
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(59%) sepia(28%) saturate(530%) hue-rotate(318deg) brightness(97%);
+}
   opacity: .75;
 }
 
@@ -1384,6 +1407,7 @@ p + p { margin-top: 1rem; }
   /* Cards */
   .jornada-card__texture { height: 140px; }
   .jornada-icon { width: 60px; height: 60px; }
+  .jornada-icon--img { width: 60px; height: 60px; }
   .jornada-card__body, .doc-card__body { padding: 1.25rem; }
 
   /* Sua Jornada */
