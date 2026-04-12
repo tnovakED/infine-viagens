@@ -611,16 +611,19 @@ p + p { margin-top: 1rem; }
 }
 
 .jornada-card__body {
-  padding: 2rem 2.25rem;
+  padding: 2.25rem 2.5rem 2rem;
 }
 .jornada-card__body h3 {
   color: var(--text-dark);
   font-size: 1.3rem;
-  margin-bottom: .75rem;
+  text-align: center;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
 }
 .jornada-card__body p {
   font-size: .9rem;
-  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
 }
 
 /* ─── SUA JORNADA, COMPLETA ─────────────────────────────── */
