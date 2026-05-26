@@ -12,6 +12,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── PRÓXIMA JORNADA — SLIDESHOW ─────────────────────── */
+    .jornada-proxima .jornada-card__texture {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      background: #1a0f08;
+    }
+
+    .jp-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      animation: jp-fade 20s infinite;
+    }
+
+    .jp-slide:nth-child(1) { animation-delay: 0s; }
+    .jp-slide:nth-child(2) { animation-delay: 5s; }
+    .jp-slide:nth-child(3) { animation-delay: 10s; }
+    .jp-slide:nth-child(4) { animation-delay: 15s; }
+
+    @keyframes jp-fade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      23%  { opacity: 1; }
+      28%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .jp-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(58, 26, 8, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .jp-logo-link {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jp-logo {
+      width: 72%;
+      max-width: 158px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.45));
+      transition: opacity 0.25s;
+    }
+
+    .jp-logo-link:hover .jp-logo { opacity: 0.85; }
+  </style>
 </head>
 <body>
 
@@ -199,14 +262,22 @@
             <a href="#servicos" class="link-arrow">Saber mais &rarr;</a>
           </div>
         </div>
-        <div class="jornada-card fade-in">
+        <div class="jornada-card jornada-proxima fade-in">
           <div class="jornada-card__texture">
-            <img src="assets/images/sun.png" alt="" aria-hidden="true" class="jornada-icon jornada-icon--img" />
+            <img class="jp-slide" src="imagens-colombia/eixo-cafeeiro/cafe02.jpeg" alt="" aria-hidden="true" />
+            <img class="jp-slide" src="imagens-colombia/eixo-cafeeiro/cafe42.jpeg" alt="" aria-hidden="true" />
+            <img class="jp-slide" src="imagens-colombia/eixo-ssanadres/sa-01.jpeg" alt="" aria-hidden="true" />
+            <img class="jp-slide" src="imagens-colombia/eixo-ssanadres/sa-02.jpeg" alt="" aria-hidden="true" />
+            <div class="jp-overlay">
+              <a class="jp-logo-link" href="output/landing/2027-08-colombia.html" aria-label="Ver Jornada Colômbia 2027">
+                <img class="jp-logo" src="imagens-colombia/JC-Branco.png" alt="Jornada Colômbia" />
+              </a>
+            </div>
           </div>
           <div class="jornada-card__body">
             <h3>Próxima Jornada</h3>
             <p>O próximo grupo está sendo formado. Se você se reconhece no que leu até aqui, o lugar pode ser seu.</p>
-            <a href="#servicos" class="link-arrow">Quero fazer parte &rarr;</a>
+            <a href="output/landing/2027-08-colombia.html" class="link-arrow">Quero fazer parte &rarr;</a>
           </div>
         </div>
       </div>
@@ -485,5 +556,17 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <script>
+    /* Pré-preenche o formulário ao chegar via ?interesse=colombia */
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('interesse') !== 'colombia') return;
+      var textarea = document.getElementById('mensagem');
+      if (textarea && !textarea.value) {
+        textarea.value = 'Olá, Leila! Vi a Jornada Colômbia 2027 e fiquei curiosa. Gostaria de saber mais sobre a experiência, o que está incluso, os valores e se ainda há vagas disponíveis. Pode me contar mais?';
+      }
+    })();
+  </script>
 </body>
 </html>

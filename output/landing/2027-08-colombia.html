@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colômbia 2027 — Jornada Infíne Viagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --terracota:       #C05A2A;
+      --terracota-claro: #D97A52;
+      --areia:           #D4B896;
+      --bege:            #F5EDE0;
+      --bege-medio:      #EAD9C5;
+      --bege-escuro:     #C8B09A;
+      --verde:           #2D5C22;
+      --verde-suave:     #4A7A38;
+      --verde-palido:    #EBF2E7;
+      --azul:            #127899;
+      --azul-suave:      #2A98BC;
+      --azul-palido:     #DCF0F8;
+      --texto:           #28160C;
+      --texto-medio:     #5A3820;
+      --texto-suave:     #8A6040;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      background-color: var(--bege);
+      color: var(--texto);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========================
+       HERO
+    ======================== */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 580px;
+      max-height: 920px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 2rem 3.5rem;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.40);
+      z-index: 1;
+    }
+
+    .hero-conteudo {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-jc {
+      width: clamp(260px, 50vw, 560px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.15));
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--areia);
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow--direita {
+      position: absolute;
+      top: 3rem;
+      right: 2rem;
+      z-index: 3;
+      margin-bottom: 0;
+      text-align: right;
+    }
+
+    .hero-logo {
+      position: absolute;
+      top: 2.25rem;
+      left: 2rem;
+      z-index: 3;
+      display: block;
+      width: 100px;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 9vw, 6rem);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--bege);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--areia);
+    }
+
+    .hero-data {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(212, 184, 150, 0.9);
+    }
+
+    /* ========================
+       INTRO
+    ======================== */
+    .intro {
+      padding: 5.5rem 2rem 4.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 1.75rem;
+    }
+
+    .intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.85rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--texto);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      color: var(--texto-medio);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    .linha {
+      width: 48px;
+      height: 1px;
+      background: var(--bege-escuro);
+      margin: 2.5rem auto;
+    }
+
+    /* ========================
+       BARRA DE INFORMAÇÃO
+    ======================== */
+    .info-bar {
+      background-color: var(--terracota);
+      padding: 2.75rem 2rem;
+    }
+
+    .info-bar-inner {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.75rem 3rem;
+    }
+
+    .info-item + .info-item {
+      border-left: 1px solid rgba(212, 184, 150, 0.28);
+    }
+
+    .info-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--areia);
+    }
+
+    .info-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(245, 237, 224, 0.72);
+    }
+
+    /* ========================
+       BLOCOS DE DESTINO
+    ======================== */
+    .bloco {
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+    }
+
+    .bloco-intro {
+      padding: 0 2rem 0;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .bloco-numero-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .cafeteiro .bloco-numero-tag { color: var(--verde); }
+    .sanandres .bloco-numero-tag { color: var(--azul); }
+
+    .bloco h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 7vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 0.35rem;
+    }
+
+    .cafeteiro h2 { color: var(--verde); }
+    .sanandres h2 { color: var(--azul); }
+
+    .bloco-subtitulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--texto-suave);
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.15rem;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+    }
+
+    .cafeteiro .badge { background: var(--verde-palido); color: var(--verde); }
+    .sanandres .badge { background: var(--azul-palido);  color: var(--azul);  }
+
+    /* ========================
+       EXPERIÊNCIAS
+    ======================== */
+    .experiencias {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--bege-medio);
+      border: 1px solid var(--bege-medio);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .exp {
+      background: var(--bege);
+      padding: 1.65rem 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+    }
+
+    .exp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.08rem;
+      opacity: 0.55;
+    }
+
+    .cafeteiro .exp-num { color: var(--verde); }
+    .sanandres .exp-num { color: var(--azul); }
+
+    .exp-conteudo h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-weight: 500;
+      color: var(--texto);
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .exp-conteudo p {
+      font-size: 0.855rem;
+      color: var(--texto-suave);
+      line-height: 1.65;
+    }
+
+    /* ========================
+       CAROUSEL
+    ======================== */
+    .galeria {
+      padding: 2.5rem 2rem 0;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .carousel {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0f0a06;
+      user-select: none;
+    }
+
+    .carousel--cafeteiro { height: 520px; }
+    .carousel--sanandres { height: 480px; }
+
+    .carousel__track {
+      position: relative;
+      height: 100%;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .carousel__slide.active { opacity: 1; }
+
+    .carousel__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+      padding: 0;
+    }
+    .carousel__btn:hover { background: rgba(255, 255, 255, 0.28); }
+    .carousel__btn--prev { left: 1rem; }
+    .carousel__btn--next { right: 1rem; }
+
+    .carousel__indicators {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0 0.35rem;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+
+    .carousel__dot {
+      flex-shrink: 0;
+      width: 20px;
+      height: 10px;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+      transition: width 0.35s ease;
+    }
+    .carousel__dot::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(45, 92, 34, 0.25);
+      transition: background 0.35s ease;
+    }
+    .carousel__dot.c-active {
+      width: 34px;
+    }
+    .carousel__dot.c-active::after {
+      background: var(--verde);
+    }
+
+    /* ========================
+       SEPARADOR
+    ======================== */
+    .separador-bloco {
+      width: calc(100% - 4rem);
+      max-width: 980px;
+      height: 1px;
+      background: var(--bege-medio);
+      margin: 0 auto;
+    }
+
+    /* ========================
+       CTA
+    ======================== */
+    .cta {
+      background-color: var(--texto);
+      padding: 6.5rem 2rem;
+      text-align: center;
+    }
+
+    .cta .eyebrow { color: var(--areia); margin-bottom: 1.75rem; }
+
+    .cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5.5vw, 3.75rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--bege);
+      margin-bottom: 1.25rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta h2 em { font-style: italic; color: var(--areia); }
+
+    .cta p {
+      font-size: 0.88rem;
+      color: rgba(212, 184, 150, 0.78);
+      max-width: 440px;
+      margin: 0 auto 2.75rem;
+      line-height: 1.85;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid rgba(212, 184, 150, 0.55);
+      color: var(--bege);
+      padding: 1.05rem 2.5rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.35s ease;
+    }
+
+    .btn:hover {
+      background: var(--areia);
+      color: var(--texto);
+      border-color: var(--areia);
+    }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      background-color: var(--texto);
+      border-top: 1px solid rgba(212, 184, 150, 0.12);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.68rem;
+      color: rgba(138, 96, 64, 0.65);
+      letter-spacing: 0.14em;
+    }
+
+    footer strong { color: var(--areia); }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+
+    /* Tablet */
+    @media (min-width: 640px) {
+      .experiencias { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 640px) and (max-width: 900px) {
+      .carousel--cafeteiro { height: 380px; }
+      .carousel--sanandres { height: 340px; }
+      .bloco { padding-top: 3.5rem; padding-bottom: 2.5rem; }
+    }
+
+    /* Mobile */
+    @media (max-width: 639px) {
+
+      /* Hero */
+      .hero {
+        align-items: stretch;
+        padding: 2rem 1.25rem 2.5rem;
+      }
+
+      .hero-conteudo {
+        max-width: 100%;
+        text-align: right;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 13vw, 3.5rem);
+      }
+
+      .hero-data {
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+      }
+
+      .eyebrow--direita {
+        top: 1.75rem;
+        right: 1.25rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.22em;
+      }
+
+      .hero-logo {
+        top: 1.75rem;
+        left: 1.25rem;
+        width: 72px;
+      }
+
+      /* Intro */
+      .intro {
+        padding: 3.5rem 1.25rem 3rem;
+      }
+
+      .intro h2 br { display: none; }
+
+      .intro p {
+        font-size: 1rem;
+      }
+
+      /* Info bar */
+      .info-item {
+        padding: 0.65rem 1.75rem;
+        width: 100%;
+      }
+
+      .info-item + .info-item {
+        border-left: none;
+        border-top: 1px solid rgba(212, 184, 150, 0.22);
+      }
+
+      .info-numero { font-size: 2.25rem; }
+
+      /* Blocos */
+      .bloco {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+      }
+
+      .bloco-intro {
+        padding: 0 1.25rem 0;
+      }
+
+      .bloco h2 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .badge {
+        font-size: 0.58rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Experiências */
+      .exp {
+        padding: 1.35rem 1.25rem;
+        gap: 1rem;
+      }
+
+      /* Galerias / Carousel */
+      .galeria {
+        padding: 1.5rem 1.25rem 0;
+      }
+
+      .carousel--cafeteiro { height: 260px; }
+      .carousel--sanandres { height: 240px; }
+
+      .carousel__btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .carousel__btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* Separador */
+      .separador-bloco {
+        width: calc(100% - 2.5rem);
+        margin-top: 0;
+      }
+
+      /* CTA */
+      .cta {
+        padding: 4rem 1.25rem;
+      }
+
+      .cta h2 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .cta p {
+        font-size: 0.85rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 1.05rem 1.5rem;
+        font-size: 0.62rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 1.5rem 1.25rem;
+      }
+
+      footer p {
+        font-size: 0.6rem;
+        line-height: 1.9;
+        letter-spacing: 0.08em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================
+       HERO
+  ======================== -->
+  <header class="hero">
+    <div class="hero-slide active">
+      <img src="../../imagens-colombia/eixo-cafeeiro/cafe01.jpeg" alt="" aria-hidden="true">
+    </div>
+    <div class="hero-slide">
+      <img src="../../imagens-colombia/eixo-ssanadres/sa-01.jpeg" alt="" aria-hidden="true">
+    </div>
+    <div class="hero-overlay"></div>
+    <a class="hero-logo" href="../../index.html" aria-label="Infíne Viagens — página inicial">
+      <img src="../../assets/images/logo.png" alt="Infíne Viagens">
+    </a>
+    <span class="eyebrow eyebrow--direita">Infíne Viagens &nbsp;&middot;&nbsp; Jornada 2027</span>
+    <div class="hero-conteudo">
+      <img class="hero-logo-jc" src="../../imagens-colombia/LOGO-JC.png" alt="Jornada Colômbia">
+    </div>
+  </header>
+
+
+  <!-- ========================
+       INTRO
+  ======================== -->
+  <section class="intro">
+    <span class="tag">A jornada</span>
+    <h2>
+      Existe um tipo de beleza que só se revela<br>
+      quando você para de tentar entender<br>
+      e começa a sentir.
+    </h2>
+    <div class="linha"></div>
+    <p>
+      Esta jornada atravessa dois mundos dentro de um mesmo país: o interior verde e perfumado do Eixo Cafeteiro, onde o tempo desacelera entre palmeiras e xícaras, e as águas de sete cores de San Andrés, onde o Caribe existe para te lembrar que o prazer também é forma de retorno.
+    </p>
+  </section>
+
+
+  <!-- ========================
+       BARRA DE INFORMAÇÃO
+  ======================== -->
+  <div class="info-bar">
+    <div class="info-bar-inner">
+      <div class="info-item">
+        <span class="info-numero">9</span>
+        <span class="info-label">dias de jornada</span>
+      </div>
+      <div class="info-item">
+        <span class="info-numero">2</span>
+        <span class="info-label">destinos</span>
+      </div>
+      <div class="info-item">
+        <span class="info-numero">ago</span>
+        <span class="info-label">10 — 18 &middot; 2027</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================
+       BLOCO 1 — EIXO CAFETEIRO
+  ======================== -->
+  <section class="bloco cafeteiro">
+    <div class="bloco-intro">
+
+      <h2>Eixo Cafeteiro</h2>
+      <p class="bloco-subtitulo">Salento &middot; Vale de Cocora &middot; Finca de café</p>
+      <span class="badge">Montanha &middot; Cultura &middot; Sabor</span>
+
+      <div class="experiencias cafeteiro">
+        <div class="exp">
+          <span class="exp-num">01</span>
+          <div class="exp-conteudo">
+            <h4>Hotel boutique com alma local</h4>
+            <p>Cores, texturas e identidade colombiana — uma hospedagem que já é experiência antes de você sair do quarto.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">02</span>
+          <div class="exp-conteudo">
+            <h4>Jeep Willys pelo Vale de Cocora</h4>
+            <p>As Palmeiras de Cera mais altas do mundo, num passeio que parece cena de outro tempo.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">03</span>
+          <div class="exp-conteudo">
+            <h4>Tour em finca cafeeira</h4>
+            <p>Do pé à xícara. Entender o café como ele merece ser entendido: com calma, presença e gratidão.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">04</span>
+          <div class="exp-conteudo">
+            <h4>Vilarejos coloridos</h4>
+            <p>Salento, Filandia — ruas de paralelepípedo, fachadas vivas e a sensação de ter chegado num lugar que não está no roteiro de ninguém.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /bloco-intro -->
+
+    <div class="galeria">
+      <div class="carousel carousel--cafeteiro" id="carousel-cafeteiro">
+        <div class="carousel__track">
+
+          <div class="carousel__slide active">
+            <img src="../../imagens-colombia/eixo-cafeeiro/Vale%20de%20Cocora%20palmeiras%20de%20cera01.jpg" alt="Palmeiras de Cera no Vale de Cocora">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/Salento%20Colombia%20casas%20coloridas01.jpg" alt="Casas coloridas de Salento, Colômbia" loading="lazy">
+          </div>
+
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/Salento%20Colombia%20casas%20coloridas03.jpg" alt="Salento, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/Vale%20de%20Cocora%20palmeiras%20de%20cera02.jpg" alt="Vale de Cocora com neblina" loading="lazy">
+          </div>
+
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe01.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe02.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe03.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe04.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe05.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe06.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe07.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe08.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe09.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe10.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe11.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe12.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe13.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe14.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe15.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe16.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe17.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe18.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe19.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe19-a.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe20.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe21.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe22.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe23.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe24.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe25.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe26.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe27.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe28.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe29.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe30.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe31.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe32.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe33.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe34.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe35.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe36.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe37.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe38.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe39.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe40.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe41.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe42.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe43.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe44.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-cafeeiro/cafe46.jpeg" alt="Eixo Cafeteiro, Colômbia" loading="lazy">
+          </div>
+
+        </div><!-- /track -->
+
+        <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Foto anterior">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel__btn carousel__btn--next" type="button" aria-label="Próxima foto">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+      </div><!-- /carousel -->
+      <div class="carousel__indicators" role="tablist" aria-label="Fotos do Eixo Cafeteiro"></div>
+    </div><!-- /galeria -->
+  </section>
+
+
+  <div class="separador-bloco"></div>
+
+
+  <!-- ========================
+       BLOCO 2 — SAN ANDRÉS
+  ======================== -->
+  <section class="bloco sanandres">
+    <div class="bloco-intro">
+
+      <h2>San Andrés</h2>
+      <p class="bloco-subtitulo">O mar de sete cores &middot; Ilha caribenha</p>
+      <span class="badge">Oceano &middot; Liberdade &middot; Leveza</span>
+
+      <div class="experiencias sanandres">
+        <div class="exp">
+          <span class="exp-num">01</span>
+          <div class="exp-conteudo">
+            <h4>Hotel com localização Estratégica</h4>
+            <p>A poucos passos do mar — você sai do quarto e o Caribe já está ali. Perto de tudo, longe do que cansa.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">02</span>
+          <div class="exp-conteudo">
+            <h4>Volta à ilha de golf cart</h4>
+            <p>Vento no rosto e a liberdade de descobrir San Andrés no seu próprio ritmo — como sempre foi.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">03</span>
+          <div class="exp-conteudo">
+            <h4>Dia de barco privativo</h4>
+            <p>Passei pelas águas turquesas.</p>
+          </div>
+        </div>
+        <div class="exp">
+          <span class="exp-num">04</span>
+          <div class="exp-conteudo">
+            <h4>Dia livre para você</h4>
+            <p>Snorkeling, parasailing, ou simplesmente existir à beira do Caribe. Nenhuma obrigação.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /bloco-intro -->
+
+    <div class="galeria">
+      <div class="carousel carousel--sanandres" id="carousel-sanandres">
+        <div class="carousel__track">
+
+          <div class="carousel__slide active">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-01.jpeg" alt="Mar de sete cores, San Andrés — Colômbia">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-02.jpeg" alt="Praia cristalina de San Andrés" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-03.jpeg" alt="Águas turquesa de San Andrés" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-04.jpeg" alt="San Andrés, Caribe colombiano" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-05.jpeg" alt="Vista do mar de San Andrés" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="../../imagens-colombia/eixo-ssanadres/sa-06.jpeg" alt="Johnny Cay, San Andrés" loading="lazy">
+          </div>
+
+        </div><!-- /track -->
+
+        <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Foto anterior">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel__btn carousel__btn--next" type="button" aria-label="Próxima foto">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+      </div><!-- /carousel -->
+      <div class="carousel__indicators" role="tablist" aria-label="Fotos de San Andrés"></div>
+    </div><!-- /galeria -->
+  </section>
+
+
+  <!-- ========================
+       CTA
+  ======================== -->
+  <section class="cta">
+    <span class="eyebrow">Próximo passo</span>
+    <h2>
+      Você vai partir como é.<br>
+      Vai voltar <em>mais inteira.</em>
+    </h2>
+    <p>
+      Esta jornada é conduzida por Leila, com o cuidado e a curadoria que são parte inseparável da Infíne. Vagas limitadas para que cada momento seja vivido com profundidade.
+    </p>
+    <a href="../../index.html?interesse=colombia#contato" class="btn">Quero saber mais sobre essa jornada</a>
+  </section>
+
+
+  <footer>
+    <p>
+      <strong>Infíne Viagens</strong> &nbsp;&middot;&nbsp;
+      Jornadas para mulheres que querem voltar mais inteiras &nbsp;&middot;&nbsp;
+      Conduzida por Leila
+    </p>
+  </footer>
+
+
+  <script>
+  /* Hero — alterna entre café e San Andrés */
+  (function () {
+    var slides = document.querySelectorAll('.hero-slide');
+    var current = 0;
+    if (slides.length < 2) return;
+    setInterval(function () {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 6000);
+  })();
+  </script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var MAX_VIS = 7;
+    var INTERVAL = 5000;
+
+    function initCarousel(carousel) {
+      var slides = carousel.querySelectorAll('.carousel__slide');
+      var total = slides.length;
+      if (!total) return;
+
+      var wrap = carousel.parentElement;
+      var indicators = wrap.querySelector('.carousel__indicators');
+      var btnPrev = carousel.querySelector('.carousel__btn--prev');
+      var btnNext = carousel.querySelector('.carousel__btn--next');
+      var current = 0;
+      var timer = null;
+      var dots = [];
+
+      // Build dots
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel__dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+        (function (idx) {
+          dot.addEventListener('click', function () { goTo(idx); });
+        })(i);
+        indicators.appendChild(dot);
+        dots.push(dot);
+      }
+
+      function show(idx) {
+        slides[current].classList.remove('active');
+        current = ((idx % total) + total) % total;
+        slides[current].classList.add('active');
+        renderDots();
+      }
+
+      function goTo(idx) {
+        show(idx);
+        resetTimer();
+      }
+
+      function renderDots() {
+        var half = Math.floor(MAX_VIS / 2);
+        var start = Math.max(0, Math.min(current - half, total - MAX_VIS));
+        var end = start + MAX_VIS;
+
+        dots.forEach(function (d, i) {
+          d.classList.toggle('c-active', i === current);
+          d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+          if (total <= MAX_VIS) {
+            d.style.display = '';
+          } else {
+            d.style.display = (i >= start && i < end) ? '' : 'none';
+          }
+        });
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () { show(current + 1); }, INTERVAL);
+      }
+
+      // Init state
+      renderDots();
+      resetTimer();
+
+      btnPrev.addEventListener('click', function () { goTo(current - 1); });
+      btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+      // Pause on hover
+      carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+      carousel.addEventListener('mouseleave', resetTimer);
+
+      // Touch swipe
+      var touchX = 0;
+      carousel.addEventListener('touchstart', function (e) {
+        touchX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      carousel.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 44) goTo(dx < 0 ? current + 1 : current - 1);
+      }, { passive: true });
+    }
+
+    document.querySelectorAll('.carousel').forEach(initCarousel);
+  })();
+  </script>
+
+</body>
+</html>

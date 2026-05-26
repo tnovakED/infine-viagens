@@ -11,6 +11,11 @@ playfair-display/
 # Configurações locais do Claude Code
 .claude/
 
+# Contratos (documentos internos — não versionar)
+agents/contratos/
+contratos-docx/
+*.docx
+
 # Sistema operacional
 .DS_Store
 Thumbs.db
